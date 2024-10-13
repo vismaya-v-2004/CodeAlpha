@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      :root {
+        --primary-color: black;
+        --secondary-golden: #ffb549;
+        --background-color: #EFEFEF;
+      }
+
+      html {
+        background-color: var(--background-color);
+      }
+
+      body {
+        padding: 0;
+        margin: 25px 40px 0 40px;
+        font-family: Helvetica, sans-serif;
+        box-sizing: border-box;
+        background-color: rgb(210, 165, 107);
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #header-img {
+        width: 50px;
+        height: 50px;
+        margin-right: 20px;
+      }
+
+      h5 {
+        font-size: 20px;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: row-reverse;
+        position: fixed;
+        background-color: var(--background-color);
+        width: 100%;
+        top: 0;
+        padding: 20px 0px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      ul {
+        display: flex;
+        list-style: none;
+      }
+
+      li {
+        margin-right: 30px;
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--primary-color);
+        cursor: pointer;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #email {
+        margin-bottom: 20px;
+        padding: 8px 100px 8px 10px;
+      }
+
+      #submit {
+        padding: 10px;
+        width: 100px;
+        text-align: center;
+        background-color: var(--secondary-golden);
+        border: none;
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      #playlists {
+        text-align: center;
+        width: 85%;
+      }
+
+      #yt-video {
+        margin-top: 20px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      #artists {
+        display: flex;
+        text-align: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        overflow: hidden;
+      }
+
+      .artist {
+        border: 1px solid var(--primary-color);
+        padding: 0 0 25px 0;
+        margin: 15px;
+      }
+
+      .title-artist {
+        background-color: #dddfe6;
+        margin: 0;
+        padding: 15px 0;
+      }
+
+      .description {
+        padding: 0 15px 15px 15px;
+      }
+
+      .listen {
+        background-color: var(--secondary-golden);
+        padding: 10px 15px;
+        margin-bottom: 20px;
+      }
+
+      h5 {
+        margin: 0;
+      }
+
+      .artist p {
+        font-weight: normal;
+        font-size: 15px;
+      }
+
+      footer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        background-color: #dddfe6;
+        bottom: 0;
+        width: calc(80%);
+        margin: 0 auto;
+        overflow: hidden;
+        padding: 20px;
+      }
+
+      h4 {
+        padding: 0;
+        margin: 0;
+        text-align: end;
+      }
+
+      #footer-links {
+        margin: 0;
+      }
+
+      #foo-link {
+        margin-right: 0;
+        margin-left: 20px;
+      }
+
+      @media (max-width: 500px) {
+        header {
+          display: flex;
+          flex-direction: column-reverse;
+          align-items: center;
+        }
+
+        ul.menu {
+          display: flex;
+          list-style: none;
+          flex-direction: column;
+        }
+
+        .nav-item {
+          margin-bottom: 10px;
+          text-align: center;
+        }
+
+        #video {
+          width: 100%;
+          height: 315px;
+        }
+
+        #form-header {
+          text-align: center;
+          padding-top: 170px;
+        }
+
+        h4 {
+          text-align: end;
+        }
+      }
+
+      @media (max-width: 700px) {
+        #artists {
+          display: flex;
+          flex-direction: column;
+        }
+
+        footer {
+          margin: 0 auto;
+          width: 90%;
+          padding: 20px 20px;
+        }
+
+        main {
+          padding: 25px 25px 0 25px;
+        }
+
+        body {
+          margin: 0;
+        }
+      }
+
+      #quote-container {
+        margin-top: 60px;
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      #quote {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+      }
+
+      #author {
+        font-style: italic;
+      }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <main>
+      <header id="header">
+        <nav id="nav-bar">
+          <ul class="menu">
+            <li class="nav-item"><a class="nav-link" href="#header">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#playlists">Playlists</a></li>
+          </ul>
+        </nav>
+        <div class="logo">
+          <img
+            id="header-img"
+            src="https://cdn.pixabay.com/photo/2015/12/09/22/09/music-1085655_960_720.png"
+          />
+          <h5>MUSIC PLAYER</h5>
+        </div>
+      </header>
+      <div id="quote-container">
+        <p id="quote">Quotes will automatically change every few seconds.</p>
+        <p id="author"></p>
+      </div>
+
+      <section id="playlists">
+        <div class="playlist">
+          <h3>A.R Rahman</h3>
+          <iframe
+            style="border-radius: 12px"
+            src="https://open.spotify.com/embed/artist/1mYsTxnqsietFxj1OgoGbG?utm_source=generator"
+            width="60%"
+            height="380"
+            frameborder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="playlist">
+          <h3>Anirudh Ravichander</h3>
+          <iframe
+            style="border-radius: 12px"
+            src="https://open.spotify.com/embed/artist/4zCH9qm4R2DADamUHMCa6O?utm_source=generator"
+            width="60%"
+            height="380"
+            frameborder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const musicQuotes = [
+        {
+          quote: "Music is the divine way to tell beautiful, poetic things to the heart.",
+          author: "Pablo Casals",
+        },
+        {
+          quote: "Where words fail, music speaks.",
+          author: "Hans Christian Andersen",
+        },
+        {
+          quote:
+            "Music expresses that which cannot be put into words and that which cannot remain silent.",
+          author: "Victor Hugo",
+        },
+        {
+          quote: "Music is the strongest form of magic.",
+          author: "Marilyn Manson",
+        },
+      ];
+
+      const quoteElement = document.getElementById("quote");
+      const authorElement = document.getElementById("author");
+      let currentIndex = 0;
+
+      function changeQuote() {
+        // Fade out
+        document.getElementById("quote-container").style.opacity = 0;
+
+        setTimeout(() => {
+          const quote = musicQuotes[currentIndex];
+          quoteElement.textContent = `${quote.quote}`;
+          authorElement.textContent = `- ${quote.author}`;
+
+          // Fade in
+          document.getElementById("quote-container").style.opacity = 1;
+
+          // Change index for next quote
+          currentIndex = (currentIndex + 1) % musicQuotes.length;
+        }, 500); // Adjust timing to match transition duration
+      }
+
+      // Initial quote
+      changeQuote();
+
+      // Change quote every 5 seconds (5000 milliseconds)
+      setInterval(changeQuote, 5000);
+    </script>
+  </body>
+</html>
+
